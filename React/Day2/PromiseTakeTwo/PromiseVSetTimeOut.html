@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // promise have high preference than any other callback function e.g setTimeout
+    // micro task queue is used for promises
+    
+    console.log("Started...");
+    setTimeout(()=>{
+      console.log("This executed after 1 second")
+    })
+    var promise = new Promise((resolve,reject)=>{
+      resolve("Success");
+    }).then((msg)=>{
+      console.log(msg);
+    })
+    
+    console.log("Ended...");
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
