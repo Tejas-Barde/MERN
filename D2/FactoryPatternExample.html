@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D2</title>
+  <script type="text/javascript">
+    function createPerson(name,age,job){ // issues with factory pattern it ends up duplication method with common functionality
+      var o = new Object();
+      o.name = name;
+      o.age= age;
+      o.job = job;
+      o.sayName = function(){
+        console.log(this.name);
+      };
+      return o;
+    }
+
+    var person1 = createPerson("Tejas",21,"Software Engineer");
+    var person2 = createPerson("Somani",42,"Doctor");
+
+    person1.sayName();
+    person2.sayName();
+
+    console.log(person1.sayName === person2.sayName)
+    console.log(person1 === person2)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

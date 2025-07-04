@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combo </title>
+  <script type="text/javascript">
+    function SuperType(name){
+      this.color = ["red","black","pink"];
+    }
+
+    SuperType.prototype.sayName = function(){
+      console.log(this.name);
+    }
+
+    function SubType(name,age){
+      SuperType.call(this,name);
+      this.age = age;
+    }
+    
+    SubType.prototype = new SuperType();
+
+    SubType.prototype.sayAge = function(){
+      console.log(this.age);
+    }
+    
+    var inst1 = new SubType("TEjas",21);
+    inst1.color.push("Maroon 5");
+    console.log(inst1.color);
+    inst1.sayName();
+    inst1.sayAge();
+
+    var inst2 = new SubType("Sujal",22);
+    console.log(inst2.color)
+    inst2.sayName();
+    inst2.sayAge();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

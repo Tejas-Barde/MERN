@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaining 2</title>
+  <script type="text/javascript">
+    function SuperType(){
+      this.color = ["red","black","pink"];
+    }
+
+    function SubType(){
+    }
+    SubType.prototype = new SuperType();
+
+    var inst1 = new SubType();
+    inst1.color.push("Yellow");
+    console.log(inst1.color);
+
+    var inst2 = new SubType();
+    console.log(inst2.color)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

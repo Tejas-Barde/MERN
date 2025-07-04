@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=`, initial-scale=1.0">
+  <title>Prototype</title>
+  <script type="text/javascript">
+
+    // constructor is referred as static clone
+    function Person(){ // prototype
+
+    }
+
+    Person.prototype.name = "Bankai"
+    Person.prototype.age= 29;
+    Person.prototype.job ="Software Engineer"
+    Person.prototype.sayName = function(){
+      // console.log('sayName from instance in invoked')
+      console.log(this.name);
+    }
+
+    var person1 = new Person();
+    person1.sayName();
+    
+    var person2 = new Person();
+    person2.sayName();
+  
+    console.log(person1.sayName === person2.sayName); //true
+    console.log(Person.prototype.isPrototypeOf(person1))
+    console.log(Person.prototype.isPrototypeOf(person2))
+
+    if(Object.getPrototypeOf){
+      console.log(Object.getPrototypeOf(person1) == Person.prototype)
+      console.log(Object.getPrototypeOf(person1).name)
+    }
+    
+    person1.sayName = function(){
+      console.log("sayname from instance in invoked")
+    }
+
+    person1.sayName() 
+
+    // -- example 3 --
+    console.log(`Example 3`);
+
+    function myDate(){
+      this.getMinutes=function(){
+        console.log('report the minutes')
+      }
+      this.getSeconds=function(){
+        console.log('report the seconds')
+      }      
+      this.getHours=function(){
+        console.log('report the hours')
+      }
+    }
+    
+    var d = new myDate();
+    
+    var e = new myDate();
+    
+    console.log("Minutes - ",d.getMinutes());
+    console.log("Hours - ",d.getHours());
+    console.log("Seconds - ",d.getSeconds());
+    
+    function Date(){
+    }
+    
+    Date.prototype.getMinutes = function(){
+      console.log('report the minutes')
+    }
+    Date.prototype.getSeconds = function(){
+      console.log('report the seconds')
+    }
+    Date.prototype.getHours = function(){
+      console.log('report the hours')
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

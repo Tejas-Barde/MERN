@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype 4</title>
+  <script type="text/javascript">
+    function Person(){
+    }
+
+    // prototype should not hold any reference type data , only use functions or primitive data types in prototype
+    Person.prototype = {
+      constructor : Person,
+      name : "Tejas",
+      age : 21,
+      job : "Software Engineer",
+      friends : ["Sujal","Raghav"],
+      sayName : function(){
+        console.log(this.name)
+      }
+    };
+
+    var person1 = new Person();
+    var person2 = new Person();
+
+    person1.friends.push("van");
+    
+    console.log(person1.friends)
+    console.log(person2.friends)
+  </script> 
+</head>
+<body>
+  
+</body>
+</html>
