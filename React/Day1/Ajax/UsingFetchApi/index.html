@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // var promise = fetch("https://jsonplaceholder.typicode.com/posts").then(
+    //   (response)=>{
+    //     let data = response.json().then(posts=> console.log(posts))
+    //   },
+    //   (error)=>{
+    //     console.log(error);
+    //   }
+    // )
+    var loadData = async ()=>{
+      try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        if(response.ok){
+          const data = await response.json();
+          console.log(data);
+          var list = document.getElementById("postId");
+          for (const item of data) {
+            var newListItem = document.createElement("li");
+            newListItem.innerText = item.title;
+            list.appendChild(newListItem);
+          }
+        }else{
+          throw new Error("Error");
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    // async function loadData(){
+    //   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    //   const data = await response.json();
+    //   console.log(data);
+    // }
+    loadData()
+  </script>
+</head>
+<body>
+  <div>
+    <ul id="postId">
+    </ul>
+  </div>
+</body>
+</html>

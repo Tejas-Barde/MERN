@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="GetData.js"></script>
+  <script>
+    console.log("Started...")
+    var promise = GetData().then(
+      (response)=>{
+        console.log(response)
+      },
+      (err)=>{
+        console.log(err);
+      }
+    );
+    console.log("Ended...")
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
