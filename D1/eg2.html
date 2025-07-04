@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    a() // hoisting
+    function a(){
+      console.log("function a executed");
+    }
+    // 2 types of fun hoisting
+    // a) fun declaration hoisting
+    // b) fun expression hoisting
+    
+    // b(); // ReferenceError: Cannot access 'b' before initialization expression is not hosted
+    b = function(){ // fun expression
+      console.log("function b executed");
+    }
+    b();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

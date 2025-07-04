@@ -1,0 +1,48 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eg3</title>
+  <script type="text/javascript">
+    var color = 'blue';
+    function changeColor() {
+      var anotherColor = 'red';
+
+      function swapColor() {
+        var tempColor = anotherColor
+        anotherColor = color;
+        color = tempColor;
+      }
+
+      swapColor();
+    }
+    changeColor();
+    console.log("Color is: " + color); // Scope Chain Augmentation SCA defines the order of variable lookup
+    // very first search scope is called as activation object
+
+    var x= 100;
+    x.a=500
+    var x ={
+      a:100,
+      b:"Hello"
+    };
+
+    // console.log(x);
+    // console.log(typeof x.a); // 500
+    // obj = new Object();
+    // obj.a = 100;
+    // console.log(obj.a); // 100
+
+    obj1 = {a:100}
+    obj2 = obj1
+    obj2.a = 200;
+    console.log(obj1.a); // 200
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

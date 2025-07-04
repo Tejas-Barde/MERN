@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day1</title>
+  <script type="text/javascript"> 
+    if(true){// non lexical scope
+      var x=100; // hoisting an(anti pattern)
+    }
+    console.log(x); // still print value of x
+    function abc(){ // lexical scope
+      var y = 200; 
+    }
+    abc()
+    console.log(y); // ReferenceError: y is not defined
+    
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

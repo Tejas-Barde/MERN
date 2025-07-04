@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eg4</title>
+  <script type="text/javascript">
+    // function f1(){
+    //   var x = 100;
+    //   // with is an anti-pattern in JS, it creates a new scope
+    //   with(document.location){ // lexical scope with will act as activation object in activation chain
+    //     var x = 500; // no hoisting
+    //   }
+    //   console.log(x); //
+    // }
+    // f1()
+
+    // -- next example --
+    // function Person(){
+    //   this.x = 100; // dont use var, let or const here, this is a property of the instance  
+    //   this.y = 200; // priviledged property of the instance available only to the instance
+    //   var z = 300; // this is a local variable, not a property of the instance
+    // }
+
+    // var p1 = new Person(); // p1 is an instance of Person (a reference type)
+    // console.log(p1.x); // undefined, x is not a property of p1
+    // console.log(p1.y); // undefined, y is not a property of p1
+    // console.log(x);
+    
+    // -- next example --
+    // function count(a,b){
+    //   console.log(arguments[0]);
+    //   console.log(arguments[1]);
+    //   var c = a+b;
+    //   console.log(c);
+    // }
+    // count(10,20); // 30
+
+    //  -- next example --
+    function Person(name){
+      this.getName = function(){
+        return name
+      }
+      this.setName = function(value){
+        name = value; 
+      }
+    }
+
+    var p1 = new Person("Bankai");
+    console.log(p1.getName()); // Bankai
+    p1.setName("Zangetsu");
+    console.log(p1.getName()); // Zangetsu
+
+    // a privileged method lives in the same scope as the private variable and exposes it to the instance
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

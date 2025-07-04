@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="text/javascript">
+    function createFunctions(){
+      var result = new Array();
+
+      for(var i =0;i<10;i++){
+        result[i] =  function(num){
+          return num;
+        }(i); // IIFE - Immediately Invoked Function Expression
+      }
+      return result;
+    }
+
+    var funcs = createFunctions();
+    for(var i =0;i<funcs.length;i++){
+      document.write(funcs[i] + "<br />");
+      // document.write(funcs[i] + "<br />");
+    } 
+
+    // -- next example --
+    // this keyword under a closure modifies the activation object and activation chain pattern;
+    var name = "The Window"
+    var object = {
+      name : "My Object",
+      getNameFunc : function(){
+        var x = this
+        return function(){ // nested function declaration is called a closure
+          return x.name ;
+        };
+      }
+    };
+    
+
+    console.log(object)
+    console.log(object.getNameFunc());
+    console.log(object.getNameFunc()());
+
+    var x= this // points to the last closure
+    console.log(x.name); // The Window
+
+    function factorial(num){
+      if(num <= 1){
+        return 1;
+      } else {
+        return num*factorial(num-1);
+      }
+    }
+
+    var anotherFactorial = factorial;
+    console.log(anotherFactorial(4))
+
+    obj1 = new Object()
+    obj2 = obj1;
+    obj1 = null
+    delete obj1
+    console.log(`Obj1 type of - ${typeof obj1}`);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
